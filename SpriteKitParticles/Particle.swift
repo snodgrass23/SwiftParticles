@@ -15,6 +15,7 @@ class Particle {
     var xPositionPrev = 0.0
     var yPositionPrev = 0.0
     var particleBody = SKSpriteNode()
+    let damping = 0.95
     
     init(x:Double, y:Double) {
         xPosition = x
@@ -22,10 +23,14 @@ class Particle {
     }
     
     func create() -> SKSpriteNode {
-        particleBody.color = randomColor()
-        particleBody.size = CGSizeMake(10, 10)
+        particleBody.color = SKColor.whiteColor()
+        particleBody.size = CGSizeMake(5, 5)
         drawAtNewPosition()
         return particleBody
+    }
+    
+    func nudge() {
+        xPosition += 5
     }
     
     func integrate() {
@@ -33,11 +38,11 @@ class Particle {
         var velocityY = yPosition - yPositionPrev
         xPositionPrev = xPosition
         yPositionPrev = yPosition
-        xPosition += velocityX
-        yPosition += velocityY
+        xPosition += velocityX * damping
+        yPosition += velocityY * damping
     }
     
-    func attract(xTarget: Double, yTarget: Double) {
+    func attractToXtarget(xTarget: Double, yTarget: Double) {
         var distanceX = xTarget - xPosition
         var distanceY = yTarget - yPosition
         var distance: Double = sqrt(distanceX * distanceX + distanceY * distanceY)
@@ -50,10 +55,10 @@ class Particle {
     }
     
     func randomColor() -> UIColor {
-        let hue = Float(arc4random() % 256) / 256.0
-        let saturation = Float(arc4random() % 128) / 256.0
-        let brightness = Float(arc4random() % 128) / 256.0
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+        let hue = CGFloat(arc4random() % 256) / 256.0
+        let saturation = CGFloat(arc4random() % 128) / 256.0
+        let brightness = CGFloat(arc4random() % 128) / 256.0
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
     }
     
 }
