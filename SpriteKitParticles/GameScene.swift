@@ -51,8 +51,4 @@ class GameScene: SKScene {
             particles.append(p)
         }
     }
-    
-    func moveParticleFieldToTouchArea() {
-        
-    }
 }
