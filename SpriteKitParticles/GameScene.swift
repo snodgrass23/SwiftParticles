@@ -17,6 +17,9 @@ class GameScene: SKScene {
         if !particlesBuilt {
             buildParticles()
         }
+        println(size)
+        println(frame.width)
+        println(CGRectGetMidX(frame))
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -29,6 +32,13 @@ class GameScene: SKScene {
     
     func buildParticles() {
         particlesBuilt = true
+        
+        for p in 1...200 {
+            let x = Double(arc4random()) % Double(frame.width)
+            let y = Double(arc4random()) % Double(frame.height)
+            let p = Particle(x: x, y: y)
+            addChild(p.create())
+        }
     }
     
     func moveParticleFieldToTouchArea() {
