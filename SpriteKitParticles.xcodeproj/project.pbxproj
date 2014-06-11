@@ -14,6 +14,7 @@
 		38EF3D651948A0CB00DB99B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EF3D631948A0CB00DB99B0 /* Main.storyboard */; };
 		38EF3D671948A0CB00DB99B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38EF3D661948A0CB00DB99B0 /* Images.xcassets */; };
 		38EF3D731948A0CB00DB99B0 /* SpriteKitParticlesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EF3D721948A0CB00DB99B0 /* SpriteKitParticlesTests.swift */; };
+		38EF3D7D1948A12700DB99B0 /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EF3D7C1948A12700DB99B0 /* Particle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		38EF3D6C1948A0CB00DB99B0 /* SpriteKitParticlesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpriteKitParticlesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EF3D711948A0CB00DB99B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38EF3D721948A0CB00DB99B0 /* SpriteKitParticlesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitParticlesTests.swift; sourceTree = "<group>"; };
+		38EF3D7C1948A12700DB99B0 /* Particle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				38EF3D5B1948A0CB00DB99B0 /* AppDelegate.swift */,
 				38EF3D5D1948A0CB00DB99B0 /* GameScene.sks */,
 				38EF3D5F1948A0CB00DB99B0 /* GameScene.swift */,
+				38EF3D7C1948A12700DB99B0 /* Particle.swift */,
 				38EF3D611948A0CB00DB99B0 /* GameViewController.swift */,
 				38EF3D631948A0CB00DB99B0 /* Main.storyboard */,
 				38EF3D661948A0CB00DB99B0 /* Images.xcassets */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38EF3D601948A0CB00DB99B0 /* GameScene.swift in Sources */,
+				38EF3D7D1948A12700DB99B0 /* Particle.swift in Sources */,
 				38EF3D621948A0CB00DB99B0 /* GameViewController.swift in Sources */,
 				38EF3D5C1948A0CB00DB99B0 /* AppDelegate.swift in Sources */,
 			);
