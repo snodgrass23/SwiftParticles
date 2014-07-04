@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Jim Snodgrass. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class Particle {
@@ -14,23 +13,15 @@ class Particle {
     var yPosition = 0.0
     var xPositionPrev = 0.0
     var yPositionPrev = 0.0
-    var particleBody = SKSpriteNode()
-    let damping = 0.95
+    var node = SKSpriteNode()
+    let damping = 0.99
     
     init(x:Double, y:Double) {
         xPosition = x
         yPosition = y
-    }
-    
-    func create() -> SKSpriteNode {
-        particleBody.color = SKColor.whiteColor()
-        particleBody.size = CGSizeMake(5, 5)
+        node.color = randomColor()
+        node.size = CGSizeMake(5, 5)
         drawAtNewPosition()
-        return particleBody
-    }
-    
-    func nudge() {
-        xPosition += 5
     }
     
     func integrate() {
@@ -51,7 +42,7 @@ class Particle {
     }
     
     func drawAtNewPosition() {
-        particleBody.position = CGPointMake(CGFloat(xPosition), CGFloat(yPosition))
+        node.position = CGPointMake(CGFloat(xPosition), CGFloat(yPosition))
     }
     
     func randomColor() -> UIColor {

@@ -9,20 +9,20 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    
+
     var particlesBuilt = false
     var particles: Particle[] = []
     var Xtarget = 350.0
     var Ytarget = 550.0
     let numberOfParticles = 1000
-    
+
     override func didMoveToView(view: SKView) {
-        backgroundColor = SKColor.blackColor()
+        backgroundColor = SKColor.whiteColor()
         if !particlesBuilt {
             buildParticles()
         }
     }
-    
+
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
@@ -30,7 +30,7 @@ class GameScene: SKScene {
             Ytarget = Double(location.y)
         }
     }
-   
+
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         for particle in particles {
@@ -39,15 +39,18 @@ class GameScene: SKScene {
             particle.drawAtNewPosition()
         }
     }
-    
+
     func buildParticles() {
         particlesBuilt = true
+        let bounds = UIScreen.mainScreen().bounds
+        let minX = frame.width - bounds.width
         
-        for p in 1...numberOfParticles{
+        for p in 1...numberOfParticles {
+            
             let x = Double(arc4random()) % Double(frame.width)
             let y = Double(arc4random()) % Double(frame.height)
             let p = Particle(x: x, y: y)
-            addChild(p.create())
+            addChild(p.node)
             particles.append(p)
         }
     }
